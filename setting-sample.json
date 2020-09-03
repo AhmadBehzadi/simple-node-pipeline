@@ -1,0 +1,24 @@
+{
+    "isActive":true,
+    "port":7001,
+    "scripts": [
+        {
+            "key":"sample",
+            "app":"node",
+            "path":"delayedapp.js",
+            "isActive":true
+        },
+        {
+            "key":"sample2",
+            "app":"node",
+            "path":"delayedapp2.js",
+            "isActive":true
+        },
+        {
+            "key":"sample3",
+            "app":"node",
+            "path":"delayedapp2.js",
+            "isActive":false
+        }
+    ]
+}
