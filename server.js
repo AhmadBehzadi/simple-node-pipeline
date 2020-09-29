@@ -3,11 +3,8 @@
 const fs = require('fs');
 var http=require('http');
 
-
 let settingRawdata = fs.readFileSync('setting.json');
 let setting = JSON.parse(settingRawdata);
-console.log(setting);
-
 
 
 var server= http.createServer((function(request,response)
@@ -20,6 +17,8 @@ var server= http.createServer((function(request,response)
     });
 
     console.log(request.url);
+	let settingRawdata = fs.readFileSync('setting.json');
+	let setting = JSON.parse(settingRawdata);
 
     if (request.url==="/"){
         response.end("Please send the parameter");
