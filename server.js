@@ -17,12 +17,17 @@ var server= http.createServer((function(request,response)
         'Transfer-Encoding': 'chunked',
         'X-Content-Type-Options': 'nosniff'
     });
-
-    console.log(request.connection.remoteAddress + " - " + request.url);
+	let date_ob = new Date();
+    console.log(date_ob + " - " + request.connection.remoteAddress + " - " + request.url);
 	let settingRawdata = fs.readFileSync('setting.json');
 	let setting = JSON.parse(settingRawdata);
 
     try {
+		if(request.url === "/favicon.ico" )
+        {
+            response.end("");  // bad parameter
+            return;
+        }
         // const regex = RegExp(/\/[A-Za-z_][\w\-]*/);
         let regexResult = request.url.match(/\/[A-Za-z_][\w\-]*/);
         let [discovered] = regexResult;
